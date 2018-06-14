@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Test.Web.API.LogProvider;
 using Test.Web.API.Models;
 
 namespace Test.Web.API
@@ -23,6 +25,7 @@ namespace Test.Web.API
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
+
             
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -50,16 +53,25 @@ namespace Test.Web.API
                         };
                     });
 
+
+
+            //services.AddDbContext<TestContext>(options =>
+            //    options.UseSqlServer(connection));
+
             //services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<TestContext>(options =>
-                options.UseSqlServer(connection));
+            TestContext.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<TestContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+            loggerFactory.AddContext(LogLevel.Information, Configuration.GetConnectionString("DefaultConnection"));
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

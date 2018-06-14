@@ -12,3 +12,17 @@ C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp
 C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorTargetAssemblyInfo.cache
 C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.dll
 C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.pdb
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.deps.json
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.runtimeconfig.json
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.runtimeconfig.dev.json
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.dll
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.pdb
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.csprojAssemblyReference.cache
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.csproj.CoreCompileInputs.cache
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorAssemblyInfo.cache
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorAssemblyInfo.cs
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.AssemblyInfoInputs.cache
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.AssemblyInfo.cs
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorTargetAssemblyInfo.cache
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.dll
+D:\ProjectGit\WebAPI_Test\TestWebAPI\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.pdb
