@@ -1,0 +1,14 @@
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.deps.json
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.runtimeconfig.json
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.runtimeconfig.dev.json
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.dll
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\bin\Debug\netcoreapp2.1\Test.Web.API.pdb
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.csprojAssemblyReference.cache
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.csproj.CoreCompileInputs.cache
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorAssemblyInfo.cache
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorAssemblyInfo.cs
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.AssemblyInfoInputs.cache
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.AssemblyInfo.cs
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.RazorTargetAssemblyInfo.cache
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.dll
+C:\Users\kovtu\Desktop\TestWebAPI\Test.Web.API\Test.Web.API\obj\Debug\netcoreapp2.1\Test.Web.API.pdb

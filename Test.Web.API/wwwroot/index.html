@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JWT в ASP.NET Core Web API</title>
+    <link href="../js/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../js/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="../layout.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-content-wrapper">
+            <div class="page-content">
+
+                <div class="userInfo" style="display:none;">
+                    <p>Вы вошли как: <span class="userName"></span></p>
+                    <input class="btn btn-danger" type="button" value="Выйти" id="logOut" />
+                </div>
+
+                <div class="loginForm">
+                    <div class="row">
+                        <div class="col-md-7">
+
+                            <h3 class="center-block">Вход на сайт</h3>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Введите email</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="email" id="emailLogin" />
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Введите пароль</label>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="password" id="passwordLogin" />
+                                </div>
+                            </div><br /><br />
+                            <div class="form-group">
+                                <label class="control-label col-md-3"></label>
+                                <div class="col-md-4">
+                                    <input class="btn btn-success" type="submit" id="submitLogin" value="Логин" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="dateInterval" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Интервал:</label>
+                                <div class="col-md-7">
+                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="dd/mm/yyyy">
+                                        <input type="text" class="form-control" name="from" id="from">
+                                        <span class="input-group-addon"> по </span>
+                                        <input type="text" class="form-control" name="to" id="to">
+                                    </div>
+                                    <!-- /input-group -->
+                                    <span class="help-block"> Выберите интервал </span>
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="form-group">
+                                <label class="control-label col-md-1"></label>
+                                <div class="col-md-5">
+                                    <input class="btn btn-success pull-left" type="submit" id="postDataInterval" value="Добавить интервал" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="getInterval" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Интервал:</label>
+                                <div class="col-md-7">
+                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="dd/mm/yyyy">
+                                        <input type="text" class="form-control" name="datefrom" id="datefrom">
+                                        <span class="input-group-addon"> по </span>
+                                        <input type="text" class="form-control" name="dateto" id="dateto">
+                                    </div>
+                                    <!-- /input-group -->
+                                    <span class="help-block"> Выберите интервал </span>
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="form-group">
+                                <label class="control-label col-md-1"></label>
+                                <div class="col-md-5">
+                                    <input class="btn btn-success" type="submit" id="getDataList" value="Cписок интервалов" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <table id="notification" border="1">
+                                            <thead>
+                                                <tr>
+                                                    <th>N</th>
+                                                    <th>Метрика</th>
+                                                    <th>Результат</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="../js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../js/moment.min.js" type="text/javascript"></script>        
+        <script src="../js/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="../js/app.min.js" type="text/javascript"></script>
+        <script src="../js/components-date-time-pickers.js" type="text/javascript"></script>
+
+        <script>
+            var tokenKey = "accessToken";
+            $('#submitLogin').click(function (e) {
+                e.preventDefault();
+                var loginData = {
+                    grant_type: 'password',
+                    username: $('#emailLogin').val(),
+                    password: $('#passwordLogin').val()
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/token',
+                    data: loginData
+                }).success(function (data) {
+                    $('.userName').text(data.username);
+                    $('.userInfo').css('display', 'block');
+                    $('.dateInterval').css('display', 'block');
+                    $('.getInterval').css('display', 'block');
+                    
+                    $('.loginForm').css('display', 'none');
+                    // сохраняем в хранилище sessionStorage токен доступа
+                    sessionStorage.setItem(tokenKey, data.access_token);
+                    console.log(data.access_token);
+                }).fail(function (data) {
+                    console.log(data);
+                });
+            });
+
+            $('#logOut').click(function (e) {
+                e.preventDefault();
+                $('.loginForm').css('display', 'block');
+                $('.userInfo').css('display', 'none');
+                $('.dateInterval').css('display', 'none');
+                $('.getInterval').css('display', 'none');
+                sessionStorage.removeItem(tokenKey);
+            });
+
+            $('#postDataInterval').click(function (e) {
+                e.preventDefault();
+                var interval = {                    
+                    from: $('#from').val(),
+                    to: $('#to').val()
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/values/saveinterval',
+                    beforeSend: function (xhr) {
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    data: interval,
+                    success: function (data) {
+                        alert(data);
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            $('#getDataList').click(function (e) {
+                e.preventDefault();
+                var intervalList = {
+                    DateFrom: $('#datefrom').val(),
+                    DateTo: $('#dateto').val()
+                };
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/values/getlist',
+                    contentType: "application/json",
+                    beforeSend: function (xhr) {
+
+                        var token = sessionStorage.getItem(tokenKey);
+                        xhr.setRequestHeader("Authorization", "Bearer " + token);
+                    },
+                    data: intervalList,
+                    success: function (data) {                        
+                        var rows = "";
+                        $.each(data, function (index, list) {
+                            rows += row(list);
+                        })
+                        $('table tbody').append(rows);                        
+                    },
+                    fail: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+            // создание строки для таблицы
+            var row = function (user) {
+                return "<tr data-rowid='" + user.id + "'><td>" + user.id + "</td>" +
+                    "<td>" + user.dateFrom + "</td> <td>" + user.dateTo + "</td></tr>";
+            }
+        </script>
+</body>
+</html>
