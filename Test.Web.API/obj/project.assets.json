@@ -12230,11 +12230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kovtu\\Desktop\\TestWebAPI\\Test.Web.API\\Test.Web.API\\Test.Web.API.csproj",
+      "projectUniqueName": "D:\\ProjectGit\\WebAPI_Test\\TestWebAPI\\Test.Web.API\\Test.Web.API.csproj",
       "projectName": "Test.Web.API",
-      "projectPath": "C:\\Users\\kovtu\\Desktop\\TestWebAPI\\Test.Web.API\\Test.Web.API\\Test.Web.API.csproj",
+      "projectPath": "D:\\ProjectGit\\WebAPI_Test\\TestWebAPI\\Test.Web.API\\Test.Web.API.csproj",
       "packagesPath": "C:\\Users\\kovtu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kovtu\\Desktop\\TestWebAPI\\Test.Web.API\\Test.Web.API\\obj\\",
+      "outputPath": "D:\\ProjectGit\\WebAPI_Test\\TestWebAPI\\Test.Web.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

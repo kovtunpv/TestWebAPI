@@ -2,3 +2,5 @@
 *.md
 LICENSE
 *.svg
+*.css
+db.lock
